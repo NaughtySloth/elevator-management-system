@@ -1,4 +1,5 @@
 ﻿using ElevatorManagementSystem.Base.Enums;
+using ElevatorManagementSystem.Base.Interfaces;
 using ElevatorManagementSystem.Base.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ElevatorManagementSystem
 {
-    public class ElevatorManager
+    public class ElevatorManager : IElevatorManager
     {
         private const int _numberOfFloors = 10;
         private readonly (int, int) optimalIdleFloors = (0, 7);
