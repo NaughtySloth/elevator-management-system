@@ -38,15 +38,12 @@ namespace ElevatorManagementSystem
             var bottomElevatorTask = Task.Run(() => _bottomElevator.Start());
 
             Task.WaitAll(new[] { topElevatorTask, bottomElevatorTask });
-
-            //await topElevatorTask;
-            //await bottomElevatorTask;
         }
 
         /// <summary>
         /// This method compares the status of the elevators and passes either the destination floor if the elevator is on the move
         /// or the current floor if the elevator is idling
-        /// Depending on those conditions we send different parameters to the AssignRequestToOptimalElevator method
+        /// Depending on those conditions we send different parameters to the SendIdleElevatorToOptimalFloor method
         /// </summary>
         /// <param name="request"></param>
         /// <returns> The Elevator to which the request was assigned to </returns>
@@ -101,7 +98,7 @@ namespace ElevatorManagementSystem
             AssignRequest(elevatorCloserToRequestedFloor, request);
 
             // I would add here the logic to optimize the location of the resting elevator to ensure minimum wait time for any future passengers
-            // to do this I would call the AssignElevatorToOptimalFloor with the idle elevator (if any is idle now)
+            // to do this I would call the SendIdleElevatorToOptimalFloor with the idle elevator (if any is idle now)
 
             return elevatorCloserToRequestedFloor;
         }
@@ -129,10 +126,10 @@ namespace ElevatorManagementSystem
         {
             Console.WriteLine("Handling Idle Elevator after timer threshold reached.");
 
-            AssignElevatorToOptimalFloor(sender as Elevator);
+            SendIdleElevatorToOptimalFloor(sender as Elevator);
         }
 
-        private void AssignElevatorToOptimalFloor(Elevator idleElevator)
+        private void SendIdleElevatorToOptimalFloor(Elevator idleElevator)
         {
             // here I would put logic which would assign an elevator to one of the default floors to rest in order to ensure minimal wait time
             // to do this I would take the current floor of the idle elevator and the destination floor of the moving elevator
