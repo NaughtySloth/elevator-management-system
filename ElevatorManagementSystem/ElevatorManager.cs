@@ -51,8 +51,8 @@ namespace ElevatorManagementSystem
         /// <returns> The Elevator to which the request was assigned to </returns>
         public Elevator ProcessRequest(Request request)
         {
-            int topElevatorFloor;
-            int bottomElevatorFloor;
+            int topElevatorFloor = -1;
+            int bottomElevatorFloor = -1;
 
             if (_topElevator.Status == ElevatorStatus.Idle && _bottomElevator.Status == ElevatorStatus.Idle)
             {
@@ -83,7 +83,7 @@ namespace ElevatorManagementSystem
                 bottomElevatorFloor = _bottomElevator.DestinationFloor;
             }
 
-            return AssignRequestToOptimalElevator(_topElevator.CurrentFloor, _bottomElevator.CurrentFloor, request);
+            return AssignRequestToOptimalElevator(topElevatorFloor, bottomElevatorFloor, request);
         }
 
         private Elevator AssignRequestToOptimalElevator(int topElevatorFloor, int bottomElevatorFloor, Request request)
