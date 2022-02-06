@@ -22,10 +22,20 @@ namespace ElevatorManagementSystem.Tests
         [TestMethod]
         public void AssignsRequestCorrectly()
         {
-            var assignedElevator = ElevatorManager.ProcessRequest(new ExternalRequest(2, Base.Enums.RequestDirection.Up));
+            var firstRequestElevator = ElevatorManager.ProcessRequest(new ExternalRequest(2, Base.Enums.RequestDirection.Up));
 
-            Assert.IsTrue(assignedElevator.Name == "Bottom elevator");
-            Assert.IsTrue(assignedElevator.UpRequests.Any());
+            Assert.IsTrue(firstRequestElevator.Name == "Bottom elevator");
+            Assert.IsTrue(firstRequestElevator.UpRequests.Any());
+
+            var secondRequestElevator = ElevatorManager.ProcessRequest(new InternalRequest(2, 3));
+
+            Assert.IsTrue(secondRequestElevator.Name == "Bottom elevator");
+            Assert.IsTrue(secondRequestElevator.UpRequests.Count == 2);
+
+            var thirdRequestElevator = ElevatorManager.ProcessRequest(new ExternalRequest(8, Base.Enums.RequestDirection.Up));
+
+            Assert.IsTrue(thirdRequestElevator.Name == "Top elevator");
+            Assert.IsTrue(thirdRequestElevator.UpRequests.Count == 1);
         }
     }
 }
