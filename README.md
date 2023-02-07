@@ -10,6 +10,8 @@ Please note that not a complete solution is expected, just a high level directio
 elevator-management-system
 Simple design for a two elevator system in a 10 story building
 
+Note: Class diagram PDF is included in the root of the solution 
+
 Assumptions:
 - ground floor is marked as 0, top floor is marked as 10
 - all the floors above the ground one have the same number of apartments and people living
