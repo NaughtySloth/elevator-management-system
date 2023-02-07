@@ -1,3 +1,12 @@
+ASSIGNMENT:
+How would you program 2 elevators for a 10-storey building?
+Please draw some lines for the high-level algorithm you would use.
+In order to express how you would do this, you can use:
+- code or pseudocode
+- diagrams to help express the logic on how it will work.
+Additionally you should include your classes design, your assumptions, etc.
+Please note that not a complete solution is expected, just a high level direction, maybe with details in the parts that you consider important.
+
 elevator-management-system
 Simple design for a two elevator system in a 10 story building
 
