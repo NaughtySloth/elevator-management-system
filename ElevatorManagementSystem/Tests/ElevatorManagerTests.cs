@@ -1,5 +1,6 @@
 ﻿using ElevatorManagementSystem.Base.Interfaces;
 using ElevatorManagementSystem.Base.Models;
+using ElevatorManagementSystem.Managers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ namespace ElevatorManagementSystem.Tests
     [TestClass]
     public class ElevatorManagerTests
     {
-        private ElevatorManager ElevatorManager;
+        private BuildingElevatorsManager ElevatorManager;
 
         [TestInitialize]
         public virtual void Setup()
         {
-            ElevatorManager = new ElevatorManager();
+            ElevatorManager = new BuildingElevatorsManager();
         }
 
         [TestMethod]

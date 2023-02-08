@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ElevatorManagementSystem.Base.Interfaces
 {
-    public interface IElevatorManager
+    public interface IBuildingElevatorsManager
     {
         Elevator ProcessRequest(Request request);
-        void StartOperation();
+        Task StartOperation();
     }
 }
